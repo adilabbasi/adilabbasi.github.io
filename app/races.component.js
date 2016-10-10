@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var mocks_1 = require('./mocks');
 var RacesComponent = (function () {
     function RacesComponent() {
-        this.heading = "Ultra Racing Schedule";
+        this.heading = "Formula 1 Schedule";
         this.cash = 10000;
     }
     RacesComponent.prototype.ngOnInit = function () {
