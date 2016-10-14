@@ -9,14 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mocks_1 = require('./mocks');
+//import { RACES } from './mocks'
+var race_service_1 = require('./race.service');
 var RacesComponent = (function () {
-    function RacesComponent() {
+    function RacesComponent(raceService) {
+        this.raceService = raceService;
         this.heading = "Formula 1 Schedule";
         this.cash = 10000;
     }
     RacesComponent.prototype.ngOnInit = function () {
-        this.races = mocks_1.RACES;
+        this.races = this.raceService.getRaces();
     };
     RacesComponent.prototype.totalCost = function () {
         var sum = 0;
@@ -48,11 +50,12 @@ var RacesComponent = (function () {
     };
     RacesComponent = __decorate([
         core_1.Component({
+            providers: [race_service_1.RaceService],
             selector: 'my-app',
             templateUrl: 'app/races.component.html',
             styleUrls: ['app/races.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [race_service_1.RaceService])
     ], RacesComponent);
     return RacesComponent;
 }());

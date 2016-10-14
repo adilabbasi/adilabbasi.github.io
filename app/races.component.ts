@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
-import { Race } from './race'
-import { RACES } from './mocks'
+//import { RACES } from './mocks'
+import { RaceService } from './race.service';
+import { Race } from './race';
 
 @Component({
+  providers: [RaceService],
   selector: 'my-app',
   templateUrl: 'app/races.component.html',
   styleUrls:['app/races.component.css']
 })
 
 export class RacesComponent {
+
+  constructor(private raceService: RaceService) {
+
+  }
+
   heading = "Formula 1 Schedule"
   cash = 10000;
   races: Race[];
 
   ngOnInit() {
-    this.races = RACES;
+    this.races = this.raceService.getRaces();
   }
 
   totalCost() {
