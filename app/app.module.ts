@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RacesComponent }   from './races.component';
 import { FormsModule } from '@angular/forms';
 import { RaceService } from './race.service';
-import { DriverService } from './driver.service';
+import { RacesDriverComponent } from './races-driver.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ RacesComponent ],
+  declarations: [ RacesComponent, RacesDriverComponent ],
+  providers:    [RaceService],
   bootstrap:    [ RacesComponent ]
 })
 

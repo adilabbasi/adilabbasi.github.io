@@ -10,11 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var mocks_1 = require('./mocks');
+var mocks_driver_1 = require('./mocks-driver');
 var RaceService = (function () {
     function RaceService() {
     }
     RaceService.prototype.getRaces = function () {
         return mocks_1.RACES;
+    };
+    RaceService.prototype.getDiver = function () {
+        return mocks_driver_1.DRIVER;
     };
     RaceService = __decorate([
         core_1.Injectable(), 

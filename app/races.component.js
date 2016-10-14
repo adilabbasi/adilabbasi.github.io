@@ -10,11 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var race_service_1 = require('./race.service');
-var driver_service_1 = require('./driver.service');
 var RacesComponent = (function () {
-    function RacesComponent(raceService, driverService) {
+    function RacesComponent(raceService) {
         this.raceService = raceService;
-        this.driverService = driverService;
         this.heading = "Formula 1 Schedule";
         this.cash = 10000;
         this.driver = '';
@@ -50,17 +48,13 @@ var RacesComponent = (function () {
     RacesComponent.prototype.cancelRace = function (race) {
         race.isRacing = false;
     };
-    RacesComponent.prototype.showDriver = function () {
-        this.driver = this.driverService.getDriver().name;
-    };
     RacesComponent = __decorate([
         core_1.Component({
-            providers: [race_service_1.RaceService, driver_service_1.DriverService],
             selector: 'my-app',
             templateUrl: 'app/races.component.html',
             styleUrls: ['app/races.component.css']
         }), 
-        __metadata('design:paramtypes', [race_service_1.RaceService, driver_service_1.DriverService])
+        __metadata('design:paramtypes', [race_service_1.RaceService])
     ], RacesComponent);
     return RacesComponent;
 }());

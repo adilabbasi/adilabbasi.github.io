@@ -9,24 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var races_component_1 = require('./races.component');
-var forms_1 = require('@angular/forms');
 var race_service_1 = require('./race.service');
-var races_driver_component_1 = require('./races-driver.component');
-var AppModule = (function () {
-    function AppModule() {
+var RacesDriverComponent = (function () {
+    function RacesDriverComponent(raceService) {
+        this.raceService = raceService;
+        this.isDriver = false;
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [races_component_1.RacesComponent, races_driver_component_1.RacesDriverComponent],
+    RacesDriverComponent.prototype.showDriver = function () {
+        this.driver = this.raceService.getDiver();
+        this.isDriver = true;
+    };
+    RacesDriverComponent = __decorate([
+        core_1.Component({
             providers: [race_service_1.RaceService],
-            bootstrap: [races_component_1.RacesComponent]
+            selector: 'driver-name',
+            templateUrl: 'app/races-driver.component.html',
+            styleUrls: ['app/races-driver.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+        __metadata('design:paramtypes', [race_service_1.RaceService])
+    ], RacesDriverComponent);
+    return RacesDriverComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.RacesDriverComponent = RacesDriverComponent;
+//# sourceMappingURL=races-driver.component.js.map

@@ -2,16 +2,7 @@
   <h1>{{heading}}</h1>
   <h2>Money for racing: <input type="text" class="cash" [(ngModel)]="cash"></h2>
   <h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2><br><br>
-
-  <div style="overflow: hidden">
-    <div style="float: left;">
-      <button class="button" (click)="showDriver()">View Driver Name</button>
-    </div>
-    <div>
-      <input type="text" class="cash special-input-box" [(ngModel)]="driver" disabled>
-    </div>
-  </div><br>
-
+  <driver-name></driver-name>
   <ul>
     <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
       <div class="panel-body">

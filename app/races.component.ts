@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { RaceService } from './race.service';
-import { DriverService } from './driver.service';
 import { Race } from './race';
+import {RacesDriverComponent} from "./races-driver.component";
 
 @Component({
-  providers: [RaceService, DriverService],
   selector: 'my-app',
   templateUrl: 'app/races.component.html',
   styleUrls:['app/races.component.css']
@@ -12,7 +11,7 @@ import { Race } from './race';
 
 export class RacesComponent {
 
-  constructor(private raceService: RaceService, private driverService: DriverService) {
+  constructor(private raceService: RaceService) {
 
   }
 
@@ -54,10 +53,5 @@ export class RacesComponent {
   cancelRace(race) {
     race.isRacing = false;
   }
-
-  showDriver() {
-    this.driver = this.driverService.getDriver().name;
-  }
-
 }
 

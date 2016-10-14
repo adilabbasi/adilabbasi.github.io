@@ -1,0 +1,17 @@
+.special-input-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background: #0a1e32;
+    border: none;
+}
+
+.button {
+    background: #fd79fc;
+    border-radius: 3px;
+    border: 0;
+    color: #ffffff;
+    width: 120px;
+    border: none;
+    text-decoration: none;
+}

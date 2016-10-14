@@ -1,0 +1,8 @@
+<div style="overflow: hidden">
+    <div style="float: left;">
+        <button class="button" (click)="showDriver()">View Driver Name</button>
+    </div>
+    <div *ngIf="isDriver">
+        <input type="text" class="special-input-box" [(ngModel)]="driver.name" disabled>
+    </div>
+</div><br>
