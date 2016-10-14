@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-//import { RACES } from './mocks'
 import { RaceService } from './race.service';
+import { DriverService } from './driver.service';
 import { Race } from './race';
 
 @Component({
-  providers: [RaceService],
+  providers: [RaceService, DriverService],
   selector: 'my-app',
   templateUrl: 'app/races.component.html',
   styleUrls:['app/races.component.css']
@@ -12,12 +12,13 @@ import { Race } from './race';
 
 export class RacesComponent {
 
-  constructor(private raceService: RaceService) {
+  constructor(private raceService: RaceService, private driverService: DriverService) {
 
   }
 
   heading = "Formula 1 Schedule"
   cash = 10000;
+  driver = '';
   races: Race[];
 
   ngOnInit() {
@@ -52,6 +53,10 @@ export class RacesComponent {
 
   cancelRace(race) {
     race.isRacing = false;
+  }
+
+  showDriver() {
+    this.driver = this.driverService.getDriver().name;
   }
 
 }

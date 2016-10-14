@@ -9,13 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-//import { RACES } from './mocks'
 var race_service_1 = require('./race.service');
+var driver_service_1 = require('./driver.service');
 var RacesComponent = (function () {
-    function RacesComponent(raceService) {
+    function RacesComponent(raceService, driverService) {
         this.raceService = raceService;
+        this.driverService = driverService;
         this.heading = "Formula 1 Schedule";
         this.cash = 10000;
+        this.driver = '';
     }
     RacesComponent.prototype.ngOnInit = function () {
         this.races = this.raceService.getRaces();
@@ -48,14 +50,17 @@ var RacesComponent = (function () {
     RacesComponent.prototype.cancelRace = function (race) {
         race.isRacing = false;
     };
+    RacesComponent.prototype.showDriver = function () {
+        this.driver = this.driverService.getDriver().name;
+    };
     RacesComponent = __decorate([
         core_1.Component({
-            providers: [race_service_1.RaceService],
+            providers: [race_service_1.RaceService, driver_service_1.DriverService],
             selector: 'my-app',
             templateUrl: 'app/races.component.html',
             styleUrls: ['app/races.component.css']
         }), 
-        __metadata('design:paramtypes', [race_service_1.RaceService])
+        __metadata('design:paramtypes', [race_service_1.RaceService, driver_service_1.DriverService])
     ], RacesComponent);
     return RacesComponent;
 }());
