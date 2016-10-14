@@ -8,7 +8,7 @@ import { RacesDriverComponent } from './races-driver.component';
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ RacesComponent, RacesDriverComponent ],
-  providers:    [RaceService],
+  providers:    [ RaceService ],
   bootstrap:    [ RacesComponent ]
 })
 
